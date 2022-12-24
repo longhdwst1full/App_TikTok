@@ -1,7 +1,18 @@
+import classNames from 'classnames/bind';
+import styles from './Header.module.scss'
+
+
+const cx = classNames.bind(styles);
+
+
 // components dùng chung cho layout
 
 function Header() {
-    return <h2>Đầy  là header</h2>;
+    return <header className={cx('wrapper')}>
+        <div className={cx('inner')}>
+
+        </div>
+    </header>
 }
 
 export default Header;
