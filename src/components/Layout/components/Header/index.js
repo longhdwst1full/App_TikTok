@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { faCircleXmark, faMagnifyingGlass, faSign, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faCircleQuestion, faCircleXmark, faEarthAsia, faEllipsisVertical, faKeyboard, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
@@ -10,11 +10,29 @@ import styles from './Header.module.scss'
 import { wrapper as PopperWrapper } from '~/components/Poper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
+import Menu from '~/components/Poper/Menu';
 
 
 const cx = classNames.bind(styles);
 
 
+const MENU_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        title: 'English'
+    },
+
+    {
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        title: 'FeedBack and help',
+        to:"/feedback"
+    },
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        title: 'Keyboard shortcuts'
+    },
+
+]
 // components dùng chung cho layout
 
 function Header() {
@@ -70,10 +88,16 @@ function Header() {
             </Tippy>
             <div className={cx('actions')}>
                 <Button text >Upload</Button>
-                <Button primary 
+                <Button primary
                 // leftIcon={  <FontAwesomeIcon icon={faSign} />} 
                 >Log in</Button>
                 {/* <Button primary className={cx('custom-login')}>Log in</Button> */}
+
+                <Menu items={MENU_ITEMS}>
+                    <button className={cx('more-btn')}>
+                        <FontAwesomeIcon icon={faEllipsisVertical} />
+                    </button>
+                </Menu>
             </div>
         </div>
     </header>

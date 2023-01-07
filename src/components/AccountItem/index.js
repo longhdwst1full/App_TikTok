@@ -5,8 +5,6 @@ import styles from "./AccountItem.module.scss";
 
 
 
-
-
 const cx = classNames.bind(styles);
 function AccountItem() {
     return (
